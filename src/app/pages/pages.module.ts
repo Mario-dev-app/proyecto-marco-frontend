@@ -6,12 +6,14 @@ import { PrimeNgModule } from '../prime-ng/prime-ng.module';
 import { PagesComponent } from './pages.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EstadosDeCuentaComponent } from './estados-de-cuenta/estados-de-cuenta.component';
+import { ReporteComponent } from './reporte/reporte.component';
 
 
 @NgModule({
   declarations: [
     PagesComponent,
-    EstadosDeCuentaComponent
+    EstadosDeCuentaComponent,
+    ReporteComponent
   ],
   imports: [
     CommonModule,
