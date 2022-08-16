@@ -1,30 +1,25 @@
+import { IsntLoggedGuard } from './services/guards/isnt-logged.guard';
+import { IsLoggedGuard } from './services/guards/is-logged.guard';
+import { PagesComponent } from './pages/pages.component';
+import { LoginComponent } from './login/login.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { TicketsComponent } from './pages/tickets/tickets.component';
-import { AdministracionComponent } from './pages/administracion/administracion.component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'dashboard',
-    pathMatch: 'full'
+    component: PagesComponent,
+    /* canActivate: [IsLoggedGuard], */
+    loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule)
   },
   {
-    path: 'dashboard',
-    component: DashboardComponent
-  },
-  {
-    path: 'tickets',
-    component: TicketsComponent
-  },
-  {
-    path: 'administracion',
-    component: AdministracionComponent
+    path: 'login',
+    /* canActivate: [IsntLoggedGuard], */
+    component: LoginComponent
   },
   {
     path: '**',
-    redirectTo: 'dashboard',
+    redirectTo: 'estados-de-cuenta',
     pathMatch: 'full'
   }
 ];

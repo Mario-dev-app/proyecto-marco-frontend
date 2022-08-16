@@ -7,12 +7,12 @@ import {AvatarModule} from 'primeng/avatar';
 import {AvatarGroupModule} from 'primeng/avatargroup';
 import {DividerModule} from 'primeng/divider';
 import {InputTextModule} from 'primeng/inputtext';
-import {CardModule} from 'primeng/card';
-import {BadgeModule} from 'primeng/badge';
-import {ChartModule} from 'primeng/chart';
 import {TableModule} from 'primeng/table';
-import { ChipModule } from 'primeng/chip';
-import { TagModule } from 'primeng/tag';
+import {DialogModule} from 'primeng/dialog';
+import {DropdownModule} from 'primeng/dropdown';
+import {InputSwitchModule} from 'primeng/inputswitch';
+
+
 
 
 
@@ -28,12 +28,10 @@ import { TagModule } from 'primeng/tag';
     AvatarGroupModule,
     DividerModule,
     InputTextModule,
-    CardModule,
-    BadgeModule,
-    ChartModule,
     TableModule,
-    ChipModule,
-    TagModule
+    DialogModule,
+    DropdownModule,
+    InputSwitchModule
   ]
 })
 export class PrimeNgModule { }

@@ -1,5 +1,7 @@
+import { LoginService } from './../../services/login.service';
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-up-navbar',
@@ -8,12 +10,18 @@ import { MenuItem } from 'primeng/api';
 })
 export class UpNavbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(public loginService: LoginService, private router: Router) { }
 
   profileItems: MenuItem[] = [];
   addItems: MenuItem[] = [];
 
+  nombre: string = this.loginService.usuarioLoggeado.nombre || '';
+
+  letraInicial: string = 'NN';
+
   ngOnInit(): void {
+
+    this.letraInicial = this.nombre.substring(0,1);
 
     this.profileItems = [
       {
@@ -23,7 +31,7 @@ export class UpNavbarComponent implements OnInit {
             label: 'Salir',
             icon: 'pi pi-power-off',
             command: () => {
-              this.cerrarSesion();
+              this.loginService.logout();
             }
           },
           {
@@ -42,8 +50,5 @@ export class UpNavbarComponent implements OnInit {
     ]
   }
 
-  cerrarSesion() {
-    console.log('Cerrando sesión...')
-  }
 
 }

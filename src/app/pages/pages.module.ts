@@ -1,24 +1,28 @@
+import { SharedModule } from './../shared/shared.module';
+import { PagesRoutingModule } from './pages.routing.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { TicketsComponent } from './tickets/tickets.component';
-import { AdministracionComponent } from './administracion/administracion.component';
 import { PrimeNgModule } from '../prime-ng/prime-ng.module';
-
+import { PagesComponent } from './pages.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EstadosDeCuentaComponent } from './estados-de-cuenta/estados-de-cuenta.component';
 
 
 @NgModule({
   declarations: [
-    DashboardComponent,
-    TicketsComponent,
-    AdministracionComponent
+    PagesComponent,
+    EstadosDeCuentaComponent
   ],
   imports: [
     CommonModule,
-    PrimeNgModule
+    PrimeNgModule,
+    PagesRoutingModule,
+    SharedModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   exports: [
-    DashboardComponent
+    PagesComponent
   ]
 })
 export class PagesModule { }

@@ -1,22 +1,8 @@
 <!-- MENÚ DESPLEGABLE DEL PERFIL -->
 <div class="flex justify-content-end flex-wrap">
 
-  <div class="flex align-items-center justify-content-center">
-    <span class="p-input-icon-left">
-      <i class="pi pi-search"></i>
-      <input type="text" pInputText placeholder="Buscar">
-    </span>
-  </div>
-
-  <div class="flex align-items-center justify-content-center w-4rem h-4rem font-bold">
-    <!-- <button pButton type="button" (click)="add.toggle($event)" class="p-button-rounded p-button-sm"
-      icon="pi pi-plus"></button> -->
-      <p-avatar class="cursor-pointer" [style]="{'background-color': 'var(--primary-color)', 'color': '#ffffff'}" (click)="add.toggle($event)" icon="pi pi-plus" size="medium" shape="circle"></p-avatar>
-    <p-menu #add [popup]="true" [model]="addItems"></p-menu>
-  </div>
-
-  <div class="flex align-items-center justify-content-center w-4rem h-4rem font-bold">
-    <p-avatar class="cursor-pointer" (click)="profile.toggle($event)" label="U" size="medium" shape="circle"></p-avatar>
+  <div class="flex align-items-center justify-content-center font-bold">
+    <p-avatar class="cursor-pointer" (click)="profile.toggle($event)" [label]="letraInicial" size="medium" shape="circle"></p-avatar>
     <p-menu #profile [popup]="true" [model]="profileItems"></p-menu>
   </div>
 
