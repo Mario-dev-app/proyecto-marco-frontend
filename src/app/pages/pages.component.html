@@ -1,9 +1,26 @@
-<div class="flex">
+<!-- <div class="flex">
     <div class="col-2">
         <app-sidebar></app-sidebar>
     </div>
     <div class="col ml-4">
         <app-up-navbar></app-up-navbar>
+        <router-outlet></router-outlet>
+    </div>
+</div> -->
+
+<!-- MODELO 2 -->
+
+<p-menubar [model]="items">
+    <ng-template pTemplate="start">
+        <img src="../../assets/logo-marco.jfif" height="35" class="mr-2">
+    </ng-template>
+    <ng-template pTemplate="end">
+        <p-avatar class="cursor-pointer" (click)="profile.toggle($event)" [label]="letraInicial" size="medium" shape="circle"></p-avatar>
+    <p-menu #profile [popup]="true" [model]="profileItems"></p-menu>
+    </ng-template>
+</p-menubar>
+<div class="grid mx-5">
+    <div class="col">
         <router-outlet></router-outlet>
     </div>
 </div>

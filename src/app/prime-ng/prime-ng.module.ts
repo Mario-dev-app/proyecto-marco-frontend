@@ -13,6 +13,8 @@ import {DropdownModule} from 'primeng/dropdown';
 import {InputSwitchModule} from 'primeng/inputswitch';
 
 
+import {MenubarModule} from 'primeng/menubar';
+
 
 
 
@@ -31,7 +33,8 @@ import {InputSwitchModule} from 'primeng/inputswitch';
     TableModule,
     DialogModule,
     DropdownModule,
-    InputSwitchModule
+    InputSwitchModule,
+    MenubarModule
   ]
 })
 export class PrimeNgModule { }

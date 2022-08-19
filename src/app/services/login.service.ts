@@ -2,7 +2,6 @@ import { environment } from './../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Usuario } from '../interfaces/Usuario';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +10,7 @@ export class LoginService {
 
   isLogged: boolean = false;
 
-  usuarioLoggeado: Usuario = {};
+  usuarioLoggeado: any = {};
 
   token: string = '';
 

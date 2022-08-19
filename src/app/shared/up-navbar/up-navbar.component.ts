@@ -15,9 +15,9 @@ export class UpNavbarComponent implements OnInit {
   profileItems: MenuItem[] = [];
   addItems: MenuItem[] = [];
 
-  nombre: string = this.loginService.usuarioLoggeado.nombre || '';
+  nombre: string = this.loginService.usuarioLoggeado.nombre || 'Prueba';
 
-  letraInicial: string = 'NN';
+  letraInicial: string = '';
 
   ngOnInit(): void {
 
