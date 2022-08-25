@@ -1,0 +1,30 @@
+#table-container{
+    width: 95vw;
+    height: 70vh;
+    overflow: auto;
+}
+
+#table-data{
+    width: 100%;
+    font-family: var(--font-family);
+}
+
+#table-data thead{
+    background-color: var(--surface-50);
+}
+
+#table-data thead tr th{
+    padding: 10px;
+    text-align: center;
+    border-collapse: collapse;
+    border-top: solid 1px var(--surface-300);
+    border-left: solid 1px var(--surface-50);
+    border-right: solid 1px var(--surface-50);
+}
+
+#table-data tbody tr td{
+    padding: 10px;
+    text-align: center;
+    border-collapse: collapse;
+    border-top: solid 1px var(--surface-300);
+}

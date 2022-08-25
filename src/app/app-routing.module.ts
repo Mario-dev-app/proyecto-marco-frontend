@@ -4,23 +4,18 @@ import { PagesComponent } from './pages/pages.component';
 import { LoginComponent } from './login/login.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { Login2Component } from './login2/login2.component';
 
 const routes: Routes = [
   {
     path: '',
     component: PagesComponent,
-    /* canActivate: [IsLoggedGuard], */
+    canActivate: [IsLoggedGuard],
     loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule)
   },
   {
     path: 'login',
-    /* canActivate: [IsntLoggedGuard], */
+    canActivate: [IsntLoggedGuard],
     component: LoginComponent
-  },
-  {
-    path: 'login2',
-    component: Login2Component
   },
   {
     path: '**',

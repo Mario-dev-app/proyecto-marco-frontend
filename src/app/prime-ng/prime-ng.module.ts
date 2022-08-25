@@ -6,14 +6,13 @@ import {ButtonModule} from 'primeng/button';
 import {AvatarModule} from 'primeng/avatar';
 import {AvatarGroupModule} from 'primeng/avatargroup';
 import {DividerModule} from 'primeng/divider';
-import {InputTextModule} from 'primeng/inputtext';
 import {TableModule} from 'primeng/table';
-import {DialogModule} from 'primeng/dialog';
 import {DropdownModule} from 'primeng/dropdown';
-import {InputSwitchModule} from 'primeng/inputswitch';
+import {CardModule} from 'primeng/card';
 
 
 import {MenubarModule} from 'primeng/menubar';
+import {TooltipModule} from 'primeng/tooltip';
 
 
 
@@ -29,12 +28,11 @@ import {MenubarModule} from 'primeng/menubar';
     AvatarModule,
     AvatarGroupModule,
     DividerModule,
-    InputTextModule,
     TableModule,
-    DialogModule,
     DropdownModule,
-    InputSwitchModule,
-    MenubarModule
+    MenubarModule,
+    CardModule,
+    TooltipModule
   ]
 })
 export class PrimeNgModule { }

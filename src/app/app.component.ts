@@ -1,5 +1,6 @@
 import { LoginService } from './services/login.service';
 import { Component, OnInit } from '@angular/core';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-root',

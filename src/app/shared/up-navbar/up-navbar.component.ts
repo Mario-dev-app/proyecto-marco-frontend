@@ -31,7 +31,7 @@ export class UpNavbarComponent implements OnInit {
             label: 'Salir',
             icon: 'pi pi-power-off',
             command: () => {
-              this.loginService.logout();
+              /* this.loginService.logout(); */
             }
           },
           {

@@ -1,8 +1,9 @@
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { Router } from '@angular/router';
 import { LoginService } from './../services/login.service';
 import { Component, OnInit } from '@angular/core';
-import Swal from 'sweetalert2'
-import { Router } from '@angular/router';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -11,55 +12,57 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-cargando: boolean = false;
-
   loginForm = new FormGroup({
-    correo: new FormControl('', [Validators.email, Validators.required]),
+    usuario: new FormControl('', [Validators.required, Validators.maxLength(12)]),
     password: new FormControl('', [Validators.required, Validators.minLength(6)])
   });
 
-  constructor(
-    private loginService: LoginService,
-    private router: Router
-    ) { }
+  constructor(private loginService: LoginService, private router: Router, private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
   }
 
-  login(){
-    if(!this.loginForm.valid){
+  login() {
+    this.spinner.show();
+    if (!this.loginForm.valid) {
       Swal.fire({
         icon: 'error',
         titleText: 'Ooops!',
-        text: 'El formato del correo o de la contraseña no son válidos',
+        text: 'El usuario o de la contraseña no son válidos',
         confirmButtonColor: 'black',
         confirmButtonText: 'Salir'
       });
+      this.spinner.hide();
       return;
     }
 
-    const correo = this.loginForm.controls['correo'].value;
+    const usuario = this.loginForm.controls['usuario'].value;
     const password = this.loginForm.controls['password'].value;
-    
-    this.cargando = true;
-    this.loginService.login(correo, password).subscribe( (data:any) => {
-      this.loginService.isLogged = true;
-      this.loginService.usuarioLoggeado = data.usuario;
-      this.router.navigateByUrl('/usuarios');
-      localStorage.setItem('usuario', JSON.stringify(data.usuario));
-      localStorage.setItem('x-token', JSON.stringify(data.token));
-      this.cargando = false;
-    }, ({error}) => {
-      Swal.fire({
-        icon: 'error',
-        titleText: 'Ooops!',
-        text: `${error.msg}`,
-        confirmButtonColor: 'black',
-        confirmButtonText: 'Salir'
-      });
-      this.cargando = false;
-    });
-  }
 
+    this.loginService.login(usuario, password).subscribe((data: any) => {
+
+      /* VALIDANDO SI LA RESPUESTA CONTIENE ALGÚN SOCIO DE NEGOCIO COMO RESPUESTA */
+      if(data.data.length === 0){
+        Swal.fire({
+          icon: 'error',
+          titleText: 'Ooops!',
+          text: 'El usuario o de la contraseña no son válidos',
+          confirmButtonColor: 'black',
+          confirmButtonText: 'Salir'
+        });
+        this.spinner.hide();
+        return;
+      }
+
+      /* ESTABLECIENDO LA SESIÓN ACTIVA Y GUARDANDO LOS DATOS EN EL LOCALSTORAGE */
+      this.loginService.isLogged = true;
+      this.loginService.usuarioLoggeado = data.data[0];
+      console.log(this.loginService.usuarioLoggeado);
+      this.router.navigateByUrl('/estado-de-cuenta');
+      localStorage.setItem('usuario', JSON.stringify(data.data[0]));
+      localStorage.setItem('x-token', JSON.stringify(data.token));
+      this.spinner.hide();
+    })
+  }
 
 }

@@ -16,12 +16,12 @@ export class LoginService {
 
   constructor(private http: HttpClient, public router: Router) { }
 
-  login(correo: string, password: string){
+  login(usuario: string, password: string){
     const body = {
-      correo,
+      usuario,
       password
     }
-    return this.http.post(`${environment.BASE_URL}/auth/login`, body);
+    return this.http.post(`${environment.BASE_URL}/login`, body);
   }
 
   logout(){

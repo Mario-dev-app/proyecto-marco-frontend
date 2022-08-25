@@ -1,3 +1,4 @@
+import { LoginService } from './../services/login.service';
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 
@@ -12,11 +13,12 @@ export class PagesComponent implements OnInit {
 
   items: MenuItem[] = [];
 
-  letraInicial: string = 'M';
+  letraInicial: string = '';
 
-  constructor() { }
+  constructor(private loginService: LoginService) { }
 
   ngOnInit(): void {
+    this.letraInicial = this.loginService.usuarioLoggeado.CardName.substring(0,1) || '';
     this.items = [
       {
         label: 'Socio de negocio',
@@ -38,12 +40,8 @@ export class PagesComponent implements OnInit {
             label: 'Salir',
             icon: 'pi pi-power-off',
             command: () => {
-              console.log('Cerrando sesión...')
+              this.loginService.logout();
             }
-          },
-          {
-            label: 'Configuración',
-            icon: 'pi pi-cog'
           }
         ]
       }

@@ -17,14 +17,15 @@ import {InputTextModule} from 'primeng/inputtext';
 import {PasswordModule} from 'primeng/password';
 import {ButtonModule} from 'primeng/button';
 import {ProgressBarModule} from 'primeng/progressbar';
-import { Login2Component } from './login2/login2.component';
+
+//Ngx-Spinner
+import { NgxSpinnerModule } from "ngx-spinner";
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    Login2Component
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +39,8 @@ import { Login2Component } from './login2/login2.component';
     ButtonModule,
     ProgressBarModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

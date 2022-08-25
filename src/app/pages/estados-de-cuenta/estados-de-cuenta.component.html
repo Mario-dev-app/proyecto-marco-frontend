@@ -1,10 +1,53 @@
-<p class="text-lg">Detalle de estado de cuenta</p>
-<div class="grid p-fluid">
-    <div class="col-4">
-        <span class="p-input-icon-left">
-            <i class="pi pi-search"></i>
-            <input type="text" class="p-inputtext-sm" pInputText placeholder="Buscar..." />
-        </span>
-    </div>
-</div>
+<p class="text-xl">Bienvenido, {{cardName}}</p>
+
 <p-divider></p-divider>
+
+<div id="table-container">
+    <table id="table-data">
+        <thead>
+            <tr class="text-md">
+                <th>DocNum</th>
+                <th>DocType</th>
+                <th>DocDate</th>
+                <th>DocDueDate</th>
+                <th>CardCode</th>
+                <th>CardName</th>
+                <th>DocTotal</th>
+                <th>DocTotalFC</th>
+                <th>Ref1</th>
+                <th>Ref2</th>
+                <th>Comments</th>
+                <th>JrnlMemo</th>
+                <th>TransId</th>
+                <th>PaymentRef</th>
+                <th>PayToCode</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let estadoCuenta of data" class="text-sm">
+                <td>{{estadoCuenta.DocNum || '-'}}</td>
+                <td>{{estadoCuenta.DocType || '-'}}</td>
+                <td>{{estadoCuenta.DocDate || '-'}}</td>
+                <td>{{estadoCuenta.DocDueDate || '-'}}</td>
+                <td>{{estadoCuenta.CardCode || '-'}}</td>
+                <td>{{estadoCuenta.CardName || '-'}}</td>
+                <td>{{estadoCuenta.DocTotal || '-'}}</td>
+                <td>{{estadoCuenta.DocTotalFC || '-'}}</td>
+                <td>{{estadoCuenta.Ref1 || '-'}}</td>
+                <td>{{estadoCuenta.Ref2 || '-'}}</td>
+                <td>{{estadoCuenta.Comments || '-'}}</td>
+                <td>{{estadoCuenta.JrnlMemo || '-'}}</td>
+                <td>{{estadoCuenta.TransId || '-'}}</td>
+                <td>{{estadoCuenta.PaymentRef || '-'}}</td>
+                <td>{{estadoCuenta.PayToCode || '-'}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<p-divider></p-divider>
+
+<div class="flex justify-content-end">
+    <button pTooltip="Descargar Excel" pButton (click)="generarExcel()" icon="pi pi-file-excel" class="p-button-sm p-button-rounded" style="background-color: #008000; border-color: #008000;"></button>
+</div>
+

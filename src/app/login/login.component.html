@@ -1,31 +1,25 @@
-
-<div class="grid" id="login-container">
-    <div class="sm:hidden md:block md:col-9" id="imagen"></div>
-    <div class="sm:col-12 md:col-3 flex align-items-center px-5">
-        <div class="form-container">
-            <h3 class="flex align-items-center justify-content-center">
-                Iniciar Sesión 
-                <img src="../../assets/logo-marco.jfif" class="ml-2" alt="" id="escudo">
-            </h3>
-            <p-progressBar mode="indeterminate" [style]="{'height': '6px'}" *ngIf="cargando"></p-progressBar>
-            <p-divider></p-divider>
+<div class="grid p-fluid flex justify-content-center align-items-center" id="login-container">
+    <div class="col-3 shadow-4 flex flex-column justify-content-center align-items-center border-round-md p-5">
+        <p class="flex align-items-center text-xl">
+            <img src="../../assets/logo-marco.jfif" class="mr-2" width="40" height="40" alt="">
+            Iniciar Sesión
+        </p>
+        <small class="text-xs">Ingrese sus credenciales de usuario</small>
+        
+        <div class="flex flex-column justify-content-center align-items-center mt-3">
             <form (ngSubmit)="login()" [formGroup]="loginForm">
-                <div class="grid p-fluid flex justify-content-center">
-                    <div class="p-inputgroup">
-                        <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
-                        <input class="p-inputtext-sm" type="email" pInputText placeholder="Usuario" formControlName="correo">
-                    </div>
-                    <div class="p-inputgroup mt-3">
-                        <span class="p-inputgroup-addon"><i class="pi pi-key"></i></span>
-                        <input class="p-inputtext-sm" type="password" pInputText placeholder="Contraseña" formControlName="password">
-                    </div>
+                <div class="p-inputgroup">
+                    <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+                    <input class="p-inputtext-sm" type="email" pInputText placeholder="Usuario" formControlName="usuario">
                 </div>
-                <!-- <div class="flex flex-column align-items-center p-2 mt-2" style="background-color: var(--red-50);">
-                    <small class="p-error">x El correo no tiene un formato correcto</small>
-                    <small class="p-error mt-1">x La contraseña debe tener seis caracteres como mínimo</small>
-                </div> -->
-                <div class="flex justify-content-center mt-3">
-                    <button type="submit" pButton class="p-button-sm" style="background-color: #042342; border-color: #042342;">Ingresar</button>
+                <div class="p-inputgroup mt-3">
+                    <span class="p-inputgroup-addon"><i class="pi pi-key"></i></span>
+                    <input class="p-inputtext-sm" type="password" pInputText placeholder="Contraseña" formControlName="password">
+                </div>
+                <div class="grid flex justify-content-center align-items-center mt-3">
+                    <div class="col-5">
+                        <button type="submit" pButton class="p-button-sm" style="background-color: #042342; border-color: #042342;">Ingresar</button>
+                    </div>
                 </div>
             </form>
         </div>
